@@ -1,0 +1,50 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group = 'com.github.wurstscript'
+version = '0.1.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
+
+tasks.withType(Javadoc).configureEach {
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+dependencies {
+    testImplementation 'org.testng:testng:7.11.0'
+}
+
+test {
+    useTestNG()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            pom {
+                name = 'wurst-project-config'
+                description = 'Shared wurst.build data model and patch target parsing for Wurst tools.'
+                url = 'https://github.com/wurstscript/wurst-project-config'
+                licenses {
+                    license {
+                        name = 'Apache License, Version 2.0'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0'
+                    }
+                }
+            }
+        }
+    }
+}
