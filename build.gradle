@@ -23,6 +23,10 @@ tasks.withType(Javadoc).configureEach {
 }
 
 dependencies {
+    // Lightweight YAML parser (zero transitive deps) for the full wurst.build loader. The lightweight
+    // WurstBuildConfig line-parser stays dependency-free; only WurstProjectConfigReader uses this.
+    implementation 'org.yaml:snakeyaml:2.3'
+
     testImplementation 'org.testng:testng:7.11.0'
 }
 
