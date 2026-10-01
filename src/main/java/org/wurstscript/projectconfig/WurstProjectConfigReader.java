@@ -86,7 +86,34 @@ public final class WurstProjectConfigReader {
             scenarioData(asMap(get(m, "scenarioData"))),
             optionFlags(asMap(get(m, "optionsFlags"))),
             players(asList(get(m, "players"))),
-            forces(asList(get(m, "forces")))
+            forces(asList(get(m, "forces"))),
+            str(get(m, "gameDataVersion")),
+            v3ReforgedData(asMap(get(m, "v3ReforgedData")))
+        );
+    }
+
+    private static WurstProjectBuildV3ReforgedData v3ReforgedData(Map<?, ?> m) {
+        if (m == null) {
+            return null;
+        }
+        return new WurstProjectBuildV3ReforgedData(
+            toInt(get(m, "loadingScreenCrestRace")),
+            toInt(get(m, "terrainFogStyle")),
+            boolOrNull(get(m, "drawTerrainFogOverSky")),
+            floatOrNull(get(m, "terrainFogLinearStart")),
+            floatOrNull(get(m, "terrainFogLinearEnd")),
+            floatOrNull(get(m, "terrainFogMaxOpacity")),
+            floatOrNull(get(m, "terrainFogHeight")),
+            toInt(get(m, "waterMinOpacity")),
+            toInt(get(m, "waterMaxOpacity")),
+            toInt(get(m, "waterReflectivity")),
+            toInt(get(m, "waterEmissivity")),
+            toInt(get(m, "waterEdgeSoftness")),
+            toInt(get(m, "waterWavesVertexDisplacement")),
+            toInt(get(m, "waterWavesNormalMapStrength")),
+            toInt(get(m, "waterOverrideColor")),
+            toInt(get(m, "waterEnvMapReflectivity")),
+            toInt(get(m, "waterUnknown"))
         );
     }
 
@@ -124,7 +151,10 @@ public final class WurstProjectConfigReader {
             bool(get(m, "maskedAreasPartiallyVisible"), false),
             bool(get(m, "showWavesOnCliffShores"), false),
             bool(get(m, "showWavesOnRollingShores"), false),
-            bool(get(m, "useItemClassificationSystem"), false)
+            bool(get(m, "useItemClassificationSystem"), false),
+            bool(get(m, "useAlphaTileMinimapColor"), false),
+            bool(get(m, "useDynamicMinimap"), false),
+            bool(get(m, "useWaterOverrideColor"), false)
         );
     }
 
@@ -143,7 +173,8 @@ public final class WurstProjectConfigReader {
                 strOrNull(get(p, "name")),
                 parseEnum(Race.class, str(get(p, "race"))),
                 parseEnum(Controller.class, str(get(p, "controller"))),
-                boolOrNull(get(p, "fixedStartLoc"))
+                boolOrNull(get(p, "fixedStartLoc")),
+                toInt(get(p, "hudSkin"))
             ));
         }
         return result;
@@ -284,6 +315,20 @@ public final class WurstProjectConfigReader {
         }
         try {
             return Integer.valueOf(o.toString().trim());
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+
+    private static Float floatOrNull(Object o) {
+        if (o instanceof Number n) {
+            return n.floatValue();
+        }
+        if (o == null) {
+            return null;
+        }
+        try {
+            return Float.valueOf(o.toString().trim());
         } catch (NumberFormatException e) {
             return null;
         }

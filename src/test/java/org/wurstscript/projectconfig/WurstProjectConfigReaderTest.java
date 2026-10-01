@@ -81,6 +81,25 @@ public class WurstProjectConfigReaderTest {
             projectName: full
             buildMapData:
               name: Gods' Arena
+              gameDataVersion: FORSAKEN_KINGDOM
+              v3ReforgedData:
+                loadingScreenCrestRace: 4
+                terrainFogStyle: 2
+                drawTerrainFogOverSky: true
+                terrainFogLinearStart: 1200.5
+                terrainFogLinearEnd: 4000.25
+                terrainFogMaxOpacity: 0.75
+                terrainFogHeight: 80.0
+                waterMinOpacity: 4
+                waterMaxOpacity: 96
+                waterReflectivity: 12
+                waterEmissivity: 3
+                waterEdgeSoftness: 42
+                waterWavesVertexDisplacement: 15
+                waterWavesNormalMapStrength: 90
+                waterOverrideColor: 112233
+                waterEnvMapReflectivity: 77
+                waterUnknown: -1
               scenarioData:
                 description: PvE Hero Survival.
                 suggestedPlayers: 4-8
@@ -91,12 +110,16 @@ public class WurstProjectConfigReaderTest {
               optionsFlags:
                 forcesFixed: true
                 showWavesOnCliffShores: true
+                useAlphaTileMinimapColor: true
+                useDynamicMinimap: true
+                useWaterOverrideColor: true
               players:
               - id: 0
                 name: Player One
                 race: HUMAN
                 controller: USER
                 fixedStartLoc: true
+                hudSkin: 64
               forces:
               - name: Team A
                 flags:
@@ -111,10 +134,31 @@ public class WurstProjectConfigReaderTest {
         WurstProjectBuildMapData map = config.buildMapData();
 
         assertEquals(map.scenarioData().description(), "PvE Hero Survival.");
+        assertEquals(map.gameDataVersion(), "FORSAKEN_KINGDOM");
+        assertEquals(map.v3ReforgedData().loadingScreenCrestRace(), Integer.valueOf(4));
+        assertEquals(map.v3ReforgedData().terrainFogStyle(), Integer.valueOf(2));
+        assertEquals(map.v3ReforgedData().drawTerrainFogOverSky(), Boolean.TRUE);
+        assertEquals(map.v3ReforgedData().terrainFogLinearStart(), Float.valueOf(1200.5f));
+        assertEquals(map.v3ReforgedData().terrainFogLinearEnd(), Float.valueOf(4000.25f));
+        assertEquals(map.v3ReforgedData().terrainFogMaxOpacity(), Float.valueOf(0.75f));
+        assertEquals(map.v3ReforgedData().terrainFogHeight(), Float.valueOf(80.0f));
+        assertEquals(map.v3ReforgedData().waterMinOpacity(), Integer.valueOf(4));
+        assertEquals(map.v3ReforgedData().waterMaxOpacity(), Integer.valueOf(96));
+        assertEquals(map.v3ReforgedData().waterReflectivity(), Integer.valueOf(12));
+        assertEquals(map.v3ReforgedData().waterEmissivity(), Integer.valueOf(3));
+        assertEquals(map.v3ReforgedData().waterEdgeSoftness(), Integer.valueOf(42));
+        assertEquals(map.v3ReforgedData().waterWavesVertexDisplacement(), Integer.valueOf(15));
+        assertEquals(map.v3ReforgedData().waterWavesNormalMapStrength(), Integer.valueOf(90));
+        assertEquals(map.v3ReforgedData().waterOverrideColor(), Integer.valueOf(112233));
+        assertEquals(map.v3ReforgedData().waterEnvMapReflectivity(), Integer.valueOf(77));
+        assertEquals(map.v3ReforgedData().waterUnknown(), Integer.valueOf(-1));
         assertEquals(map.scenarioData().suggestedPlayers(), "4-8");
         assertEquals(map.scenarioData().loadingScreen().title(), "by Overkane and Frotty");
         assertTrue(map.optionsFlags().forcesFixed());
         assertTrue(map.optionsFlags().showWavesOnCliffShores());
+        assertTrue(map.optionsFlags().useAlphaTileMinimapColor());
+        assertTrue(map.optionsFlags().useDynamicMinimap());
+        assertTrue(map.optionsFlags().useWaterOverrideColor());
         assertTrue(map.optionsFlags().useItemClassificationSystem() == false);
 
         assertEquals(map.players().size(), 1);
@@ -124,6 +168,7 @@ public class WurstProjectConfigReaderTest {
         assertEquals(player.race(), Race.HUMAN);
         assertEquals(player.controller(), Controller.USER);
         assertEquals(player.fixedStartLoc(), Boolean.TRUE);
+        assertEquals(player.hudSkin(), Integer.valueOf(64));
 
         assertEquals(map.forces().size(), 1);
         WurstProjectBuildForce force = map.forces().get(0);

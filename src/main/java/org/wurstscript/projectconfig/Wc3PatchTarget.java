@@ -56,6 +56,10 @@ public record Wc3PatchTarget(String name, Kind kind, String gameVersion) {
         return compareVersions(gameVersion, "1.32") >= 0;
     }
 
+    public boolean isReignOfChaos() {
+        return name.regionMatches(true, 0, "ROC-", 0, 4);
+    }
+
     public boolean usesClassicWindowArg() {
         return compareVersions(gameVersion, "1.31") < 0;
     }
