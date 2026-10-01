@@ -86,7 +86,8 @@ public final class WurstProjectConfigReader {
             scenarioData(asMap(get(m, "scenarioData"))),
             optionFlags(asMap(get(m, "optionsFlags"))),
             players(asList(get(m, "players"))),
-            forces(asList(get(m, "forces")))
+            forces(asList(get(m, "forces"))),
+            str(get(m, "gameDataVersion"))
         );
     }
 

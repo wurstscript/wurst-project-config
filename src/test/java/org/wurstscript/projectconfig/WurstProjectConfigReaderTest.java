@@ -81,6 +81,7 @@ public class WurstProjectConfigReaderTest {
             projectName: full
             buildMapData:
               name: Gods' Arena
+              gameDataVersion: FORSAKEN_KINGDOM
               scenarioData:
                 description: PvE Hero Survival.
                 suggestedPlayers: 4-8
@@ -111,6 +112,7 @@ public class WurstProjectConfigReaderTest {
         WurstProjectBuildMapData map = config.buildMapData();
 
         assertEquals(map.scenarioData().description(), "PvE Hero Survival.");
+        assertEquals(map.gameDataVersion(), "FORSAKEN_KINGDOM");
         assertEquals(map.scenarioData().suggestedPlayers(), "4-8");
         assertEquals(map.scenarioData().loadingScreen().title(), "by Overkane and Frotty");
         assertTrue(map.optionsFlags().forcesFixed());

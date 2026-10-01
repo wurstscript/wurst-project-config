@@ -7,6 +7,7 @@ This library intentionally stays small:
 - Java records for the project DTOs
 - no runtime YAML dependency for the top-level build settings parser
 - shared WC3 patch target parsing for Grill and the compiler
+- `buildMapData.gameDataVersion` for selecting the W3I game-data version (for example `FORSAKEN_KINGDOM`)
 - lenient parsing: unknown build fields and unsupported legacy values are ignored
 - Java 17 bytecode, built with a Java 17 toolchain
 
