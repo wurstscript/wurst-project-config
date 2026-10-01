@@ -8,7 +8,8 @@ public record WurstProjectBuildOptionFlagsData(
     boolean showWavesOnRollingShores,
     boolean useItemClassificationSystem,
     boolean useAlphaTileMinimapColor,
-    boolean useDynamicMinimap
+    boolean useDynamicMinimap,
+    boolean useWaterOverrideColor
 ) {
     public WurstProjectBuildOptionFlagsData(
         boolean hideMinimapPreview,
@@ -19,10 +20,24 @@ public record WurstProjectBuildOptionFlagsData(
         boolean useItemClassificationSystem
     ) {
         this(hideMinimapPreview, forcesFixed, maskedAreasPartiallyVisible, showWavesOnCliffShores,
-            showWavesOnRollingShores, useItemClassificationSystem, false, false);
+            showWavesOnRollingShores, useItemClassificationSystem, false, false, false);
+    }
+
+    public WurstProjectBuildOptionFlagsData(
+        boolean hideMinimapPreview,
+        boolean forcesFixed,
+        boolean maskedAreasPartiallyVisible,
+        boolean showWavesOnCliffShores,
+        boolean showWavesOnRollingShores,
+        boolean useItemClassificationSystem,
+        boolean useAlphaTileMinimapColor,
+        boolean useDynamicMinimap
+    ) {
+        this(hideMinimapPreview, forcesFixed, maskedAreasPartiallyVisible, showWavesOnCliffShores,
+            showWavesOnRollingShores, useItemClassificationSystem, useAlphaTileMinimapColor, useDynamicMinimap, false);
     }
 
     public static WurstProjectBuildOptionFlagsData empty() {
-        return new WurstProjectBuildOptionFlagsData(false, false, false, false, false, false, false, false);
+        return new WurstProjectBuildOptionFlagsData(false, false, false, false, false, false, false, false, false);
     }
 }

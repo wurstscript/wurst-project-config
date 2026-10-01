@@ -112,6 +112,7 @@ public class WurstProjectConfigReaderTest {
                 showWavesOnCliffShores: true
                 useAlphaTileMinimapColor: true
                 useDynamicMinimap: true
+                useWaterOverrideColor: true
               players:
               - id: 0
                 name: Player One
@@ -157,6 +158,7 @@ public class WurstProjectConfigReaderTest {
         assertTrue(map.optionsFlags().showWavesOnCliffShores());
         assertTrue(map.optionsFlags().useAlphaTileMinimapColor());
         assertTrue(map.optionsFlags().useDynamicMinimap());
+        assertTrue(map.optionsFlags().useWaterOverrideColor());
         assertTrue(map.optionsFlags().useItemClassificationSystem() == false);
 
         assertEquals(map.players().size(), 1);

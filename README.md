@@ -43,6 +43,7 @@ buildMapData:
     - id: 0
       hudSkin: 64
   optionsFlags:
+    useWaterOverrideColor: true
     useAlphaTileMinimapColor: true
     useDynamicMinimap: true
 ```

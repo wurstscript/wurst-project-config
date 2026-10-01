@@ -153,7 +153,8 @@ public final class WurstProjectConfigReader {
             bool(get(m, "showWavesOnRollingShores"), false),
             bool(get(m, "useItemClassificationSystem"), false),
             bool(get(m, "useAlphaTileMinimapColor"), false),
-            bool(get(m, "useDynamicMinimap"), false)
+            bool(get(m, "useDynamicMinimap"), false),
+            bool(get(m, "useWaterOverrideColor"), false)
         );
     }
 
