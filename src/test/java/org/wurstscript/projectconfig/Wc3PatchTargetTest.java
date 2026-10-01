@@ -37,6 +37,13 @@ public class Wc3PatchTargetTest {
     }
 
     @Test
+    public void distinguishesReignOfChaosHistoryTargets() {
+        assertTrue(Wc3PatchTarget.parse("ROC-v1.28.5.7680").orElseThrow().isReignOfChaos());
+        assertFalse(Wc3PatchTarget.parse("v1.27b").orElseThrow().isReignOfChaos());
+        assertFalse(Wc3PatchTarget.parse("TFT-v1.31.1.12173").orElseThrow().isReignOfChaos());
+    }
+
+    @Test
     public void ignoresUnknownPatchNames() {
         assertFalse(Wc3PatchTarget.parse(null).isPresent());
         assertFalse(Wc3PatchTarget.parse("").isPresent());
