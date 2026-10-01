@@ -88,15 +88,15 @@ public final class WurstProjectConfigReader {
             players(asList(get(m, "players"))),
             forces(asList(get(m, "forces"))),
             str(get(m, "gameDataVersion")),
-            w3iV39(asMap(get(m, "w3iV39")))
+            v3ReforgedData(asMap(get(m, "v3ReforgedData")))
         );
     }
 
-    private static WurstProjectBuildW3IV39Data w3iV39(Map<?, ?> m) {
+    private static WurstProjectBuildV3ReforgedData v3ReforgedData(Map<?, ?> m) {
         if (m == null) {
             return null;
         }
-        return new WurstProjectBuildW3IV39Data(
+        return new WurstProjectBuildV3ReforgedData(
             toInt(get(m, "loadingScreenCrestRace")),
             toInt(get(m, "terrainFogStyle")),
             boolOrNull(get(m, "drawTerrainFogOverSky")),

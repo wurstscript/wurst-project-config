@@ -7,21 +7,21 @@ This library intentionally stays small:
 - Java records for the project DTOs
 - no runtime YAML dependency for the top-level build settings parser
 - shared WC3 patch target parsing for Grill and the compiler
-- `buildMapData.gameDataVersion` and `buildMapData.w3iV39` for W3I game-data selection and format-39 metadata
+- `buildMapData.gameDataVersion` and `buildMapData.v3ReforgedData` for Warcraft III Reforged 3 map settings
 - lenient parsing: unknown build fields and unsupported legacy values are ignored
 - Java 17 bytecode, built with a Java 17 toolchain
 
-## W3I format 39 settings
+## Warcraft III Reforged 3 map settings
 
-W3I fields introduced by Warcraft III 3.0 can be configured under
-`buildMapData.w3iV39`. Setting any of these values, a player's `hudSkin`, or
-the v39 option flags promotes the map's W3I to format 39. The compiler rejects
+Map settings introduced by Warcraft III Reforged 3 can be configured under
+`buildMapData.v3ReforgedData`. Setting any of these values, a player's `hudSkin`, or
+the new option flags makes Wurst write the map data required by Reforged 3. The compiler rejects
 these settings when the pinned `wc3Patch` is older than 3.0.
 
 ```yaml
 buildMapData:
   gameDataVersion: FORSAKEN_KINGDOM
-  w3iV39:
+  v3ReforgedData:
     loadingScreenCrestRace: 4
     terrainFogStyle: 2
     drawTerrainFogOverSky: true
@@ -47,7 +47,7 @@ buildMapData:
     useDynamicMinimap: true
 ```
 
-`hudSkin` and the numeric metadata fields are raw values from the W3I file.
+`hudSkin` and the numeric settings are raw values from the map.
 
 ## Build
 

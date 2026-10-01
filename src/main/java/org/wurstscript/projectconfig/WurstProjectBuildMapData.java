@@ -11,7 +11,7 @@ public record WurstProjectBuildMapData(
     List<WurstProjectBuildPlayer> players,
     List<WurstProjectBuildForce> forces,
     String gameDataVersion,
-    WurstProjectBuildW3IV39Data w3iV39
+    WurstProjectBuildV3ReforgedData v3ReforgedData
 ) {
     /** Compatibility constructor for consumers that do not configure a W3I game-data version. */
     public WurstProjectBuildMapData(
@@ -49,7 +49,7 @@ public record WurstProjectBuildMapData(
         players = Defaults.list(players);
         forces = Defaults.list(forces);
         gameDataVersion = Defaults.blankToNull(gameDataVersion);
-        w3iV39 = Defaults.value(w3iV39, WurstProjectBuildW3IV39Data::empty);
+        v3ReforgedData = Defaults.value(v3ReforgedData, WurstProjectBuildV3ReforgedData::empty);
     }
 
     public static WurstProjectBuildMapData empty() {

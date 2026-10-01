@@ -82,7 +82,7 @@ public class WurstProjectConfigReaderTest {
             buildMapData:
               name: Gods' Arena
               gameDataVersion: FORSAKEN_KINGDOM
-              w3iV39:
+              v3ReforgedData:
                 loadingScreenCrestRace: 4
                 terrainFogStyle: 2
                 drawTerrainFogOverSky: true
@@ -134,23 +134,23 @@ public class WurstProjectConfigReaderTest {
 
         assertEquals(map.scenarioData().description(), "PvE Hero Survival.");
         assertEquals(map.gameDataVersion(), "FORSAKEN_KINGDOM");
-        assertEquals(map.w3iV39().loadingScreenCrestRace(), Integer.valueOf(4));
-        assertEquals(map.w3iV39().terrainFogStyle(), Integer.valueOf(2));
-        assertEquals(map.w3iV39().drawTerrainFogOverSky(), Boolean.TRUE);
-        assertEquals(map.w3iV39().terrainFogLinearStart(), Float.valueOf(1200.5f));
-        assertEquals(map.w3iV39().terrainFogLinearEnd(), Float.valueOf(4000.25f));
-        assertEquals(map.w3iV39().terrainFogMaxOpacity(), Float.valueOf(0.75f));
-        assertEquals(map.w3iV39().terrainFogHeight(), Float.valueOf(80.0f));
-        assertEquals(map.w3iV39().waterMinOpacity(), Integer.valueOf(4));
-        assertEquals(map.w3iV39().waterMaxOpacity(), Integer.valueOf(96));
-        assertEquals(map.w3iV39().waterReflectivity(), Integer.valueOf(12));
-        assertEquals(map.w3iV39().waterEmissivity(), Integer.valueOf(3));
-        assertEquals(map.w3iV39().waterEdgeSoftness(), Integer.valueOf(42));
-        assertEquals(map.w3iV39().waterWavesVertexDisplacement(), Integer.valueOf(15));
-        assertEquals(map.w3iV39().waterWavesNormalMapStrength(), Integer.valueOf(90));
-        assertEquals(map.w3iV39().waterOverrideColor(), Integer.valueOf(112233));
-        assertEquals(map.w3iV39().waterEnvMapReflectivity(), Integer.valueOf(77));
-        assertEquals(map.w3iV39().waterUnknown(), Integer.valueOf(-1));
+        assertEquals(map.v3ReforgedData().loadingScreenCrestRace(), Integer.valueOf(4));
+        assertEquals(map.v3ReforgedData().terrainFogStyle(), Integer.valueOf(2));
+        assertEquals(map.v3ReforgedData().drawTerrainFogOverSky(), Boolean.TRUE);
+        assertEquals(map.v3ReforgedData().terrainFogLinearStart(), Float.valueOf(1200.5f));
+        assertEquals(map.v3ReforgedData().terrainFogLinearEnd(), Float.valueOf(4000.25f));
+        assertEquals(map.v3ReforgedData().terrainFogMaxOpacity(), Float.valueOf(0.75f));
+        assertEquals(map.v3ReforgedData().terrainFogHeight(), Float.valueOf(80.0f));
+        assertEquals(map.v3ReforgedData().waterMinOpacity(), Integer.valueOf(4));
+        assertEquals(map.v3ReforgedData().waterMaxOpacity(), Integer.valueOf(96));
+        assertEquals(map.v3ReforgedData().waterReflectivity(), Integer.valueOf(12));
+        assertEquals(map.v3ReforgedData().waterEmissivity(), Integer.valueOf(3));
+        assertEquals(map.v3ReforgedData().waterEdgeSoftness(), Integer.valueOf(42));
+        assertEquals(map.v3ReforgedData().waterWavesVertexDisplacement(), Integer.valueOf(15));
+        assertEquals(map.v3ReforgedData().waterWavesNormalMapStrength(), Integer.valueOf(90));
+        assertEquals(map.v3ReforgedData().waterOverrideColor(), Integer.valueOf(112233));
+        assertEquals(map.v3ReforgedData().waterEnvMapReflectivity(), Integer.valueOf(77));
+        assertEquals(map.v3ReforgedData().waterUnknown(), Integer.valueOf(-1));
         assertEquals(map.scenarioData().suggestedPlayers(), "4-8");
         assertEquals(map.scenarioData().loadingScreen().title(), "by Overkane and Frotty");
         assertTrue(map.optionsFlags().forcesFixed());

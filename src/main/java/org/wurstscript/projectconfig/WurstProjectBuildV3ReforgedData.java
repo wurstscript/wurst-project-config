@@ -1,7 +1,7 @@
 package org.wurstscript.projectconfig;
 
-/** Optional map metadata introduced by W3I format 39. */
-public record WurstProjectBuildW3IV39Data(
+/** Optional map metadata introduced in Warcraft III Reforged 3.0. */
+public record WurstProjectBuildV3ReforgedData(
     Integer loadingScreenCrestRace,
     Integer terrainFogStyle,
     Boolean drawTerrainFogOverSky,
@@ -20,8 +20,8 @@ public record WurstProjectBuildW3IV39Data(
     Integer waterEnvMapReflectivity,
     Integer waterUnknown
 ) {
-    public static WurstProjectBuildW3IV39Data empty() {
-        return new WurstProjectBuildW3IV39Data(null, null, null, null, null, null, null,
+    public static WurstProjectBuildV3ReforgedData empty() {
+        return new WurstProjectBuildV3ReforgedData(null, null, null, null, null, null, null,
             null, null, null, null, null, null, null, null, null, null);
     }
 
